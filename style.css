@@ -706,6 +706,36 @@ a {
   line-height: 2;
 }
 
+.contact-guide {
+  margin: 0 0 24px;
+  padding: 24px;
+  text-align: left;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.contact-guide > div + div {
+  margin-top: 20px;
+}
+
+.contact-guide dt {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+}
+
+.contact-guide dd {
+  margin: 6px 0 0;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.contact-form-note {
+  margin: 0 0 18px;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
 .contact-note {
   margin-top: 28px;
   font-size: 0.85rem;
