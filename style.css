@@ -352,6 +352,16 @@ a {
   }
 }
 
+.hero-title-break-sm {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hero-title-break-sm {
+    display: block;
+  }
+}
+
 /* CSSのみのシンプルな装飾（PC・資料・業務改善を連想させる図形） */
 .hero-decoration {
   position: absolute;
@@ -582,6 +592,120 @@ a {
 }
 
 /* ==========================================================================
+   8. 制作実績・AI活用事例
+   ========================================================================== */
+.section-works {
+  border-top: 1px solid var(--color-border);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+.works-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 34px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.works-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-accent-bright), var(--color-accent));
+}
+
+.works-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.works-label {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.works-card h3 {
+  margin: 0 0 14px;
+  color: var(--color-accent-dark);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.works-summary {
+  margin: 0 0 24px;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.works-meta {
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.works-meta > div + div {
+  margin-top: 18px;
+}
+
+.works-meta dt {
+  color: var(--color-accent-dark);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.works-meta dd {
+  margin: 8px 0 0;
+}
+
+.works-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.works-tags li {
+  padding: 4px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background-color: var(--color-bg-alt);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.works-points {
+  margin: 0;
+  padding-left: 1.3em;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.works-points li::marker {
+  color: var(--color-accent-bright);
+}
+
+/* ==========================================================================
    5. 実務経験 × AI
    ========================================================================== */
 .exp-grid {
@@ -699,6 +823,11 @@ a {
   font-size: clamp(1.3rem, 1.05rem + 1vw, 1.6rem);
 }
 
+.contact-title-break-sm,
+.contact-title-break-xs {
+  display: none;
+}
+
 .contact-text {
   color: var(--color-text-light);
   margin-bottom: 34px;
@@ -771,6 +900,7 @@ a {
 @media (max-width: 640px) {
   .section {
     padding: 60px 0;
+    scroll-margin-top: 100px;
   }
 
   .hero {
@@ -798,8 +928,21 @@ a {
     margin: -12px 0 26px;
   }
 
+  .works-card {
+    padding: 30px 22px;
+  }
+
   .contact-block {
     padding: 30px 20px;
+  }
+
+  /* 2行目（19文字）が1行に収まる大きさまで縮める（PCと同じ上限は維持） */
+  #contact .section-title {
+    font-size: min(clamp(1.3rem, 1.05rem + 1vw, 1.6rem), calc((100vw - 42px) / 19.4));
+  }
+
+  .contact-title-break-sm {
+    display: block;
   }
 
   .header-inner {
@@ -816,6 +959,7 @@ a {
 
   .site-nav {
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
   }
@@ -823,6 +967,17 @@ a {
   .site-nav a {
     font-size: 0.8rem;
     padding: 7px 14px;
+  }
+}
+
+/* 2行に収めると16px未満になる幅では、文字サイズを戻して3行にする */
+@media (max-width: 351px) {
+  #contact .section-title {
+    font-size: clamp(1.3rem, 1.05rem + 1vw, 1.6rem);
+  }
+
+  .contact-title-break-xs {
+    display: block;
   }
 }
 
